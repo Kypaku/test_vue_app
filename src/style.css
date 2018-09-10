@@ -18,8 +18,14 @@
   background: wheat;
   padding: 10px;
   cursor: pointer;
+} 
+.home{
+  background: gray;
+  padding: 10px;
+  cursor: pointer;
+  width: 100px;
 }    
-#app{
+.basket-page,.list-items{
   width: 800px;
   margin: 0 auto;
 }    

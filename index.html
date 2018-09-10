@@ -2,68 +2,15 @@
 <html>
   <head>
   <title>Test Application</title>
-  <link rel="stylesheet" media="all" href="./style.css">  
+  <meta charset="utf-8"></meta>
+  <link rel="stylesheet" media="all" href="./src/style.css">  
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-  <meta charset="utf-8"> </meta>
-  <script src="./rest-client.js"></script>  
+  <script src="./src/rest-client.js"></script>  
   </head>
   <body>
   
-    <div id="app" class="hidden">
-      <div class="list-items" v-if="!basket.page">
-      
-        <div class="basket" @click="toBasket">
-          Корзина ({{basketCount()}})
-        </div>
-        <div class="item" v-for="(item, i) in starships">
-          <div class="item__name" @click="toggleAccordion">
-            {{ item.name }}
-          </div>
-          <div class="item__content hidden">
-            <div class="item__prop"  v-for="(prop, key) in item" v-if="fields.indexOf(key) >= 0">
-              {{key[0].toUpperCase() + key.slice(1)}} - {{prop}}
-            </div>  
-            <div class="item__button" @click="toggleBasket" :data-index="i">
-              {{item.basket ? "Удалить из корзины" :"Добавить в корзину"}}
-            </div>
-          </div>
-        </div>
-      </div>
-      
-      <div class="basket-page" v-if="basket.page">
-        <div class="basket-page__item" v-for="(item, i) in starships" v-if="item.basket">
-          <div class="basket-page__name">
-            {{ item.name }}
-          </div>
-          <div class="basket-page__button" @click="toggleBasket" :data-index="i">
-            {{"Удалить из корзины"}}
-          </div>
-        </div>
-        <div class="basket-page__total">
-          Всего: {{basketPrice()}}
-        </div>
-        <div class="item__order" @click="showPopup">
-          Оформить заказ
-        </div>        
-      </div>
-      
-      <template v-if="basket.popup">
-        <div class="overlay" @click="hidePopup"></div>
-        <div class="popup">
-          <div class="popup__close" @click="hidePopup">(X)</div>
-          <form class="popup__content">   
-            <p>ФИО <input type="text" v-model="form_fields.fullname" name="fullname"/></p>
-            <p>Адрес <input type="text" v-model="form_fields.address" name="address"/></p>
-            <p>Дата доставки <input type="text"  v-model="form_fields.date"  name="date"/></p>
-            <div class="popup__button" @click="approve">
-              Подтвердить
-            </div>
-          </form>
-        </div>
-      </template>
-      
-    </div>
+    <div id="app" class="hidden"> </div>
     
-    <script src="./main.js"></script>
+    <script src="./dist/bundle.js"></script>
   </body>
 </html>
