@@ -5,6 +5,7 @@
 .item__name{
   font-size: 24px;
   cursor:pointer;
+  margin: 5px 0 0 5px;
 }
 .item__name:hover{
   color: gray;
@@ -14,6 +15,7 @@
 }
 .basket{
   right: 50px;
+  top: 30px;
   position: fixed;
   background: wheat;
   padding: 10px;
@@ -24,16 +26,25 @@
   padding: 10px;
   cursor: pointer;
   width: 100px;
+  text-align: center;
+  margin-bottom: 20px;  
 }    
 .basket-page,.list-items{
   width: 800px;
   margin: 0 auto;
-}    
+}  
+.item__content {
+    margin: 10px 0 0 20px;
+}
+.item__prop {
+    margin: 4px 0;
+}  
 .item__button{
   background: #a7d8df;
   width: 150px;
   cursor:pointer;
   padding: 10px;  
+  margin-top: 10px;
 }    
 .basket-page__item{
   width: 100%;
@@ -41,6 +52,10 @@
 }
 .basket-page__name{
   float: left
+}
+.basket-page__total {
+  border-top: 1px solid gray;
+  padding-top: 10px;
 }
 .basket-page__button{
   float: right;
@@ -74,7 +89,7 @@
 }
 .popup__close{
   float: right;
-  font-size: 24px;
+  font-size: 28px;
   cursor: pointer;
   padding: 10px;
 }    
@@ -83,4 +98,17 @@
   cursor:pointer;
   padding: 10px;
   background: wheat;  
+}
+.popup__content {
+    padding: 20px;
+}
+.popup__text{
+  width: 175px;
+  display: inline-block;
+}
+.title{
+  text-align: center
+}
+body{
+  font-family: sans-serif;
 }

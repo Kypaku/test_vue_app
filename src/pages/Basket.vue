@@ -1,33 +1,33 @@
 <template>
       
       <div class="basket-page">
-        <div class="home" @click="toHome">Назад</div>
+        <div class="home" @click="toHome">Home</div>
         <div class="basket-page__item" v-for="(item, i) in items" v-if="item.basket">
           <div class="basket-page__name">
             {{ item.name }} x {{item.basket}}
           </div>
           <div class="basket-page__button" @click="removeFromBasket" :data-index="i">
-            {{"Удалить из корзины"}}
+            Remove from cart
           </div>
         </div>
         <div class="basket-page__total">
-          Всего: {{basketPrice}}
+          Total: {{basketPrice}}
         </div>
         <div class="item__order" @click="togglePopup">
-          Оформить заказ
+          Checkout
         </div>        
       
       
         <template v-if="popup">
           <div class="overlay" @click="togglePopup"></div>
           <div class="popup">
-            <div class="popup__close" @click="togglePopup">(X)</div>
+            <div class="popup__close" @click="togglePopup">×</div>
             <form class="popup__content">   
-              <p>ФИО <input type="text" v-model="form_fields.fullname" name="fullname"/></p>
-              <p>Адрес <input type="text" v-model="form_fields.address" name="address"/></p>
-              <p>Дата доставки <input type="text"  v-model="form_fields.date"  name="date"/></p>
+              <p><span class="popup__text">Fullname </span><input type="text" v-model="form_fields.fullname" name="fullname"/></p>
+              <p><span class="popup__text">Address </span><input type="text" v-model="form_fields.address" name="address"/></p>
+              <p><span class="popup__text">Delivery date </span><input type="text"  v-model="form_fields.date"  name="date"/></p>
               <div class="popup__button" @click="approve">
-                Подтвердить
+                Confirm 
               </div>
             </form>
           </div>

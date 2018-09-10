@@ -2,7 +2,7 @@
       <div class="list-items">
       
         <div class="basket" @click="toBasket">
-          Корзина ({{basketCount}})
+          Cart ({{basketCount}})
         </div>
         <div class="item" v-for="(item, i) in starships">
           <div class="item__name" @click="toggleAccordion">
@@ -13,10 +13,10 @@
               {{key[0].toUpperCase() + key.slice(1)}} - {{prop}}
             </div>  
             <div class="item__button" @click="addToBasket" :data-index="i">
-              "Добавить в корзину"
+              Add to cart
             </div>
             <div class="item__button" @click="removeFromBasket" :data-index="i" v-if="item.basket">
-              "Удалить из корзины"
+              Remove from cart
             </div>            
           </div>
         </div>
