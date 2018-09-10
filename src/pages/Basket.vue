@@ -1,49 +1,34 @@
 <template>
-      
-      <div class="basket-page">
-        <div class="home" @click="toHome">Home</div>
-        <div class="basket-page__item" v-for="(item, i) in items" v-if="item.basket">
-          <div class="basket-page__name">
-            {{ item.name }} x {{item.basket}}
-          </div>
-          <div class="basket-page__button" @click="removeFromBasket" :data-index="i">
-            Remove from cart
-          </div>
-        </div>
-        <div class="basket-page__total">
-          Total: {{basketPrice}}
-        </div>
-        <div class="item__order" @click="togglePopup">
-          Checkout
-        </div>        
-      
-      
-        <template v-if="popup">
-          <div class="overlay" @click="togglePopup"></div>
-          <div class="popup">
-            <div class="popup__close" @click="togglePopup">×</div>
-            <form class="popup__content">   
-              <p><span class="popup__text">Fullname </span><input type="text" v-model="form_fields.fullname" name="fullname"/></p>
-              <p><span class="popup__text">Address </span><input type="text" v-model="form_fields.address" name="address"/></p>
-              <p><span class="popup__text">Delivery date </span><input type="text"  v-model="form_fields.date"  name="date"/></p>
-              <div class="popup__button" @click="approve">
-                Confirm 
-              </div>
-            </form>
-          </div>
-        </template>
+    <div class="basket-page">
+    <div class="home" @click="toHome">Home</div>
+    <div class="basket-page__item" v-for="(item, i) in items" v-if="item.basket">
+      <div class="basket-page__name">
+        {{ item.name }} x {{item.basket}}
       </div>
-      
-</template>    
-
+      <div class="basket-page__button" @click="removeFromBasket" :data-index="i">
+        Remove from cart
+      </div>
+    </div>
+    <div class="basket-page__total">
+      Total: {{basketPrice}}
+    </div>
+    <div class="item__order" @click="togglePopup">
+      Checkout
+    </div>                    
+    <popup></popup>
+  </div>      
+</template>  
 
 <script>
+  import store from '../store/store.js';
+  import {customRound} from '../helpers.js';
+  
   export default {
     data(){
       return {
-        items: this.$store.state.basket,
+        items: store.state.basket,
         popup: false,
-        form_fields:this.$store.state.form_fields
+        form_fields: store.state.form_fields
       }
     },
     methods:{
@@ -61,16 +46,16 @@
       },
       approve: function(){
         this.items = []
-        this.$store.commit('clearBasket')  
-        this.$store.commit('clearFields') 
+        store.commit('clearBasket')  
+        store.commit('clearFields') 
         this.$root.currentRoute = '/'        
         window.history.pushState(null, 'Title', '/')
       }
     },
     computed:{
       basketPrice: function(){
-        let price = this.items.reduce((total, el) => total += el.basket * el.price,0)
-        return this.$root.customRound(price,2).toFixed(2)      
+        let price = this.items.reduce((total, el) => total += el.basket * el.price, 0)
+        return customRound(price,2).toFixed(2)      
       }    
     }
   }
