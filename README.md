@@ -3,7 +3,7 @@ Test VueJS Application
 
 View demо - http://kypaku.ru/
 
-Build (webpack):
+Build:
 
 `npm run build`
 
