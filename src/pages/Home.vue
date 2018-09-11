@@ -9,7 +9,7 @@
       </div>
       <div class="item__content hidden">
         <div class="item__prop"  v-for="(prop, key) in item" v-if="fields.indexOf(key) >= 0">
-          {{key[0].toUpperCase() + key.slice(1)}} - {{prop}}
+          <div class="item__text left">{{key[0].toUpperCase() + key.slice(1)}}</div>:<div class="item__text right">{{prop}}</div>
         </div>  
         <div class="item__button" @click="addToBasket" :data-index="i">
           Add to cart

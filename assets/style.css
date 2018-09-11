@@ -30,21 +30,29 @@
   margin-bottom: 20px;  
 }    
 .basket-page,.list-items{
-  width: 800px;
+  width: 640px;
   margin: 0 auto;
 }  
 .item__content {
-    margin: 10px 0 0 20px;
+  margin: 10px 20px 0 20px;
 }
 .item__prop {
-    margin: 4px 0;
+  margin: 4px 0;
+  border-bottom: 1px solid #f1f1f1;
 }  
+.item__text.left{
+  float:left;
+}  
+.item__text.right{
+  float:right;
+}
 .item__button{
   background: #a7d8df;
-  width: 150px;
+  width: 130px;
   cursor:pointer;
   padding: 10px;  
   margin-top: 10px;
+  text-align: center;
 }
 
 .basket-page__item{
@@ -101,7 +109,7 @@
   background: wheat;  
 }
 .popup__content {
-    padding: 20px;
+  padding: 20px;
 }
 .popup__text{
   width: 175px;
