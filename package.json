@@ -5,8 +5,8 @@
   "main": "src/index.js",
   "scripts": {
     "start": "node server.js",
-    "build": "./node_modules/.bin/webpack-cli.cmd -p",
-    "watch": "./node_modules/.bin/webpack-cli.cmd --watch"
+    "build": "./node_modules/.bin/webpack-cli -p",
+    "watch": "./node_modules/.bin/webpack-cli --watch"
   },
   "author": "Andrew Kypaku",
   "license": "MIT",
