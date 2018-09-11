@@ -1,15 +1,13 @@
 {
-  "name": "sampleapp",
+  "name": "sample-vue-app",
   "version": "1.0.0",
   "description": "Sample App",
-  "main": "src/index.js",
   "scripts": {
     "start": "node server.js",
     "build": "./node_modules/.bin/webpack-cli -p",
     "watch": "./node_modules/.bin/webpack-cli --watch"
   },
   "author": "Andrew Kypaku",
-  "license": "MIT",
   "devDependencies": {
     "vue-template-compiler": "^2.5.17",
     "webpack-cli": "^3.1.0"
