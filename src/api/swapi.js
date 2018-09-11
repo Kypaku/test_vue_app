@@ -1,4 +1,4 @@
-import {getParameterByName} from '../helpers.js';
+import {getParameterByName} from '../helpers/helpers.js';
 
 const getItemsFormPage = (api, page, cb) =>  {  
   let params = page ? {'page':page} : undefined

@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex';
 import api from '../api/swapi.js';
-import {customRound} from '../helpers.js';
+import {customRound} from '../helpers/helpers.js';
 
 Vue.use(Vuex);
 
@@ -22,6 +22,7 @@ export const store = new Vuex.Store({
     starships: [],    
     basket: [],
     form_fields : {fullname: "", addres: "", date: ""},
+    popup: false
   },
   actions:{
     updateProductsList({commit, state}){
@@ -40,9 +41,13 @@ export const store = new Vuex.Store({
     },
     clearBasket(state){
       state.starships.forEach( el => el.basket = 0)
+      state.popup = false
     },
     clearFields(state){
       state.form_fields = {fullname: "", addres: "", date: ""}
+    },
+    togglePopup(state){
+      state.popup = !state.popup
     }
   }
 })
