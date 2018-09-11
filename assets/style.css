@@ -107,7 +107,7 @@
   width: 175px;
   display: inline-block;
 }
-.title{
+.title, .subtitle{
   text-align: center
 }
 body{
