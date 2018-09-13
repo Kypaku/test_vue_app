@@ -9,7 +9,7 @@ const addProductsFromPage = (products, page) => {
   let list = []
   for(let el of page){
     if(products.every(item => el.name != item.name)){
-      el.basket = 0
+      el.count = 0
       el.price = customRound(1000000*Math.random(),2).toFixed(2)
       list.push(el)
     }
@@ -19,28 +19,42 @@ const addProductsFromPage = (products, page) => {
 
 export const store = new Vuex.Store({
   state: {
-    starships: [],    
-    basket: [],
+    items: [],    
+    cart: {},
     form_fields : {fullname: "", addres: "", date: ""},
     popup: false
   },
   actions:{
     updateProductsList({commit, state}){
       api.getProducts((res) => {        
-        commit('pushItems',addProductsFromPage(state.starships,res.results))   
+        commit('pushItems',addProductsFromPage(state.items,res.results))   
       })      
+    },
+    addToCart({commit}, item){
+      commit('addToCart', item)
+    },
+    removeFromCart({commit}, item){
+      commit('removeFromCart', item)
+    },
+    togglePopup({commit}, item){
+      commit('togglePopup', item)
     }
   }
   ,
   mutations: {
     pushItems(state, items){
-      items.forEach(el => state.starships.push(el))      
+      items.forEach(el => state.items.push(el))      
     },
-    addItemsToBasket(state, items){
-      state.basket = items
+    addToCart(state, item){
+      item.count++
+      Vue.set(state.cart, item.name, item)
     },
-    clearBasket(state){
-      state.starships.forEach( el => el.basket = 0)
+    removeFromCart(state, item){
+      item.count ? item.count-- : null
+    },
+    clearCart(state){
+      state.items.forEach( el => el.count = 0)
+      state.cart = {}
       state.popup = false
     },
     clearFields(state){
@@ -48,6 +62,11 @@ export const store = new Vuex.Store({
     },
     togglePopup(state){
       state.popup = !state.popup
+    }
+  },
+  getters:{
+    cartCount(state){  
+      return Object.values(state.cart).reduce((total,el) => total + el.count, 0)
     }
   }
 })

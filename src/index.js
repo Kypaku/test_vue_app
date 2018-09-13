@@ -1,26 +1,17 @@
 import Vue from 'vue'
-import {store} from './store/store.js'
+import App from './App.vue'
+import { store } from './store/store.js'
+import router from './router/router.js'
+import { sync } from 'vuex-router-sync'
 
-const routes = {
-  '/': 'Home',
-  '/basket': 'Basket'
-}
+Vue.config.devtools = true
+
+sync(store, router)
 
 const app = new Vue({
   el: '#app',
+  router,
   store,
-  data:{
-    currentRoute: window.location.pathname
-  },
-  computed: {
-    ViewComponent () {
-      const matchingView = routes[this.currentRoute]
-      return matchingView
-        ? require('./pages/' + matchingView + '.vue').default
-        : require('./pages/404.vue').default
-    }
-  },  
-  render (h) {
-    return h(this.ViewComponent)
-  }
+  template: '<app/>',
+  components: { App }
 })

@@ -16,25 +16,69 @@
 </template> 
 
 <script>
-  import {store} from '../store/store.js';
+  import {store} from '../store/store.js'
+  import router from '../router/router.js'
+  import { mapGetters } from 'vuex'
+  
   export default {
     name:'popup',
     data(){
       return {
-        popup: store.state.popup,
         form_fields: store.state.form_fields
       }
     },  
     methods:{
-      togglePopup: function(){
-        store.commit('togglePopup')
-      },
       approve: function(){
-        store.commit('clearBasket')  
+        store.commit('clearCart')  
         store.commit('clearFields') 
-        this.$root.currentRoute = '/'        
-        window.history.pushState(null, 'Title', '/')
+        router.push('/')
       }    
-    }    
+    },
+    computed: {
+      ...mapGetters([
+        'togglePopup'
+      ])
+    }
+  }      
+</script>  
+
+<style>  
+  .overlay{
+    width: 100%;
+    height: 1000px;
+    background: gray;
+    position: fixed;
+    left: 0;
+    top: 0;
+    opacity: 0.4;
+    cursor: pointer;
+  }    
+  .popup__wrapper{
+    width: 800px;
+    height: 600px;
+    background: white;
+    position: fixed;
+    left: 50%;
+    top: 20px;
+    margin-left: -400px;
   }
-</script>   
+  .popup__close{
+    float: right;
+    font-size: 28px;
+    cursor: pointer;
+    padding: 10px;
+  }    
+  .popup__button{
+    float: right;
+    cursor:pointer;
+    padding: 10px;
+    background: wheat;  
+  }
+  .popup__content {
+    padding: 20px;
+  }
+  .popup__text{
+    width: 175px;
+    display: inline-block;
+  }  
+</style> 

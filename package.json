@@ -17,7 +17,9 @@
     "css-loader": "^1.0.0",
     "vue": "^2.5.17",
     "vue-cli": "^2.9.6",
-    "vue-loader": "^15.4.1",
-    "vuex": "^3.0.1"
+    "vue-loader": "^14.2.3",
+    "vue-router": "^3.0.1",
+    "vuex": "^3.0.1",
+    "vuex-router-sync": "^5.0.0"
   }
 }

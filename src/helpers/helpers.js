@@ -11,3 +11,7 @@ export const getParameterByName = (name, url) => {
 export const customRound = (num, length) => {
   return Math.round((num)*Math.pow(10,length))/Math.pow(10,length)
 }
+
+export const capitalize = (str) => {
+  return str[0].toUpperCase() + str.slice(1)
+}
