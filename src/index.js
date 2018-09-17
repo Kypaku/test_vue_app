@@ -4,8 +4,6 @@ import { store } from './store/store.js'
 import router from './router/router.js'
 import { sync } from 'vuex-router-sync'
 
-Vue.config.devtools = true
-
 sync(store, router)
 
 const app = new Vue({

@@ -5,6 +5,7 @@ import {customRound} from '../helpers/helpers.js';
 
 Vue.use(Vuex);
 
+//Callback function for adding items from one query to API
 const addProductsFromPage = (products, page) => {
   let list = []
   for(let el of page){
@@ -25,7 +26,8 @@ export const store = new Vuex.Store({
     popup: false
   },
   actions:{
-    updateProductsList({commit, state}){
+    //Gets items from API
+    updateItemsList({commit, state}){
       api.getProducts((res) => {        
         commit('pushItems',addProductsFromPage(state.items,res.results))   
       })      
@@ -71,9 +73,8 @@ export const store = new Vuex.Store({
   }
 })
 
-store.dispatch('updateProductsList')
+//Repeats queries to API 
+store.dispatch('updateItemsList')
 setInterval(() => {
-   store.dispatch('updateProductsList')
+   store.dispatch('updateItemsList')
 }, 60000)
-document.getElementById('app').classList.toggle('hidden')
-
