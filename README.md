@@ -3,7 +3,7 @@ VueJS SPA (Single Page Application) Vuex + Vue Router
 
 List of items and the shopping cart.
 
-Items received from the API (https://swapi.co)
+Items from https://swapi.co
 
 View demо - http://kypaku.ru/
 
