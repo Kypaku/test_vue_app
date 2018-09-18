@@ -16,29 +16,26 @@
 </template> 
 
 <script>
-  import {store} from '../store/store.js'
   import router from '../router/router.js'
-  import { mapGetters } from 'vuex'
+  import { mapActions } from 'vuex'
   
   export default {
     name:'popup',
     data(){
       return {
-        form_fields: store.state.form_fields
+        form_fields: this.$store.state.form_fields
       }
     },  
     methods:{
+      ...mapActions([
+        'togglePopup'
+      ]),    
       approve: function(){
-        store.commit('clearCart')  
-        store.commit('clearFields') 
+        this.$store.commit('clearCart')  
+        this.$store.commit('clearFields') 
         router.push('/')
       }    
     },
-    computed: {
-      ...mapGetters([
-        'togglePopup'
-      ])
-    }
   }      
 </script>  
 
@@ -72,7 +69,7 @@
     float: right;
     cursor:pointer;
     padding: 10px;
-    background: wheat;  
+    background: #42b783;  
   }
   .popup__content {
     padding: 20px;

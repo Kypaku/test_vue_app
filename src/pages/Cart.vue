@@ -23,7 +23,6 @@
 </style>
 
 <script>
-  import {store} from '../store/store.js';
   import {customRound} from '../helpers/helpers.js';
   import popup from '../components/popup.vue';  
   import router from '../router/router.js'
@@ -32,8 +31,8 @@
   export default {
     data(){
       return {
-        items: Object.values(store.state.cart),
-        form_fields: store.state.form_fields
+        items: Object.values(this.$store.state.cart),
+        form_fields: this.$store.state.form_fields
       }
     },
     components:{
@@ -41,11 +40,9 @@
     },
     methods:{
       ...mapActions([
-        'removeFromCart'
-      ]),
-      togglePopup: function(){
-        store.commit('togglePopup')
-      }
+        'removeFromCart',
+        'togglePopup'
+      ])
     },
     computed:{
       cartPrice: function(){
@@ -77,6 +74,6 @@
     float: right;
     cursor:pointer;
     padding: 10px;
-    background: wheat;  
+    background: #42b783;  
   }
 </style>

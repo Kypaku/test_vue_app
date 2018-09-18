@@ -38,8 +38,8 @@ export const store = new Vuex.Store({
     removeFromCart({commit}, item){
       commit('removeFromCart', item)
     },
-    togglePopup({commit}, item){
-      commit('togglePopup', item)
+    togglePopup({commit}){
+      commit('togglePopup')
     }
   }
   ,

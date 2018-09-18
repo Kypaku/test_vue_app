@@ -10,7 +10,6 @@
 </template> 
 
 <script>
-  import {store} from '../store/store.js'
   import router from '../router/router.js' 
   import { mapGetters } from 'vuex'   
   
@@ -40,6 +39,6 @@
   .cart{
     right: 50px;
     top: 30px;
-    background: wheat;        
+    background: #42b783;        
   }
 </style> 

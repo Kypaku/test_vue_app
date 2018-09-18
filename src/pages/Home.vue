@@ -20,7 +20,6 @@
 </template>
 
 <script>
-  import {store} from '../store/store.js'
   import router from '../router/router.js'
   import {capitalize} from '../helpers/helpers.js'
   import { mapActions } from 'vuex' 
@@ -28,7 +27,7 @@
   export default {
     data(){
       return {
-        items: store.state.items,
+        items: this.$store.state.items,
         fields: [
           'price',
           'MGLT',
@@ -85,11 +84,12 @@
     border-bottom: 1px solid #f1f1f1;
   } 
   .item__button{
-    background: #a7d8df;
+    background: #34495e;
     width: 130px;
     cursor:pointer;
     padding: 10px;  
     margin-top: 10px;
     text-align: center;
+    color: white;
   }
 </style>
