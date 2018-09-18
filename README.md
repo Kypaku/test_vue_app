@@ -5,7 +5,6 @@ List of items and the shopping cart.
 
 Items from https://swapi.co
 
-View demо - http://kypaku.ru/
 
 Build:
 
