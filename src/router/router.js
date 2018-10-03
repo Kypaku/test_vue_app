@@ -9,12 +9,12 @@ export default new Router({
   mode: 'history',
   routes: [
     {
-      path: '/',
+      path: '/test_vue_app/',
       name: 'home',
       component: Home
     },
     {
-      path: '/cart',
+      path: '/test_vue_app/cart',
       name: 'cart',
       component: Cart
     }
