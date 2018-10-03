@@ -1,10 +1,10 @@
 <template>
   <div class="header">    
     <div class="home link left">
-      <router-link :to="'/'">Home</router-link>
+      <router-link :to="'/test_vue_app/'">Home</router-link>
     </div>        
-    <div class="cart link fixed" v-if="$route.path == '/'">
-      <router-link :to="'cart'">Cart ({{cartCount}})</router-link>
+    <div class="cart link fixed" v-if="$route.path == '/test_vue_app/'">
+      <router-link :to="'/test_vue_app/cart'">Cart ({{cartCount}})</router-link>
     </div>     
   </div>
 </template> 

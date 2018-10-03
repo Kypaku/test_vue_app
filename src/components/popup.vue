@@ -33,7 +33,7 @@
       approve: function(){
         this.$store.commit('clearCart')  
         this.$store.commit('clearFields') 
-        router.push('/')
+        router.push('/test_vue_app/')
       }    
     },
   }      
