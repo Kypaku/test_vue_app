@@ -5,6 +5,7 @@ List of items and the shopping cart.
 
 Items from https://swapi.co
 
+Demo: https://kypaku.github.io/test_vue_app/
 
 Build:
 
