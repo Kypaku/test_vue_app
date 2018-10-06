@@ -3,7 +3,7 @@ import Vuex from 'vuex'
 import api from '../api/swapi.js'
 import {customRound} from '../helpers/helpers.js'
 
-Vue.use(Vuex);
+Vue.use(Vuex)
 
 //Callback function for adding items from one query to API
 const addProductsFromPage = (products, page) => {
