@@ -1,7 +1,7 @@
 import Vue from 'vue'
-import Vuex from 'vuex';
-import api from '../api/swapi.js';
-import {customRound} from '../helpers/helpers.js';
+import Vuex from 'vuex'
+import api from '../api/swapi.js'
+import {customRound} from '../helpers/helpers.js'
 
 Vue.use(Vuex);
 
